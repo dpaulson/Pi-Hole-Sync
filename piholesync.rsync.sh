@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Version 0.1
+# Version 0.2
 
 #Direct output to piholesync.log
 exec >  >(tee -ia piholesync.log)
@@ -33,6 +33,8 @@ if [[ -f $FILE ]]; then
 	  ssh $HAUSER@$PIHOLE2 "sudo -S service pihole-FTL stop"
 	  echo "Sending kill FTL to $PIHOLE2"
 	  ssh $HAUSER@$PIHOLE2 "sudo -S pkill pihole-FTL"
+	  echo "Sleeping for 3 seconds to allow service stop/kill to complete"
+	  sleep 3
 	  echo "Sending start FTL command to $PIHOLE2"
 	  ssh $HAUSER@$PIHOLE2 "sudo -S service pihole-FTL start"
 	  echo "FTL restart commands all sent to $PIHOLE2"
