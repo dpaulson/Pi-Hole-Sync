@@ -1,7 +1,7 @@
 #!/bin/bash
 # README
 
-#Version 0.2
+#Version 0.4
 #-----------------------------
 #Credit to redditor /u/jvinch76  https://www.reddit.com/user/jvinch76 for creating the basis for this modification.
 #-----------------------------
@@ -64,6 +64,9 @@
 #20. scroll to the bottom of the editor, and on a new blank line,
 #21. type "@reboot /bin/bash /home/pi/piholesync.watcher.sh" <- this will run once when the system boots up
 #22. save and exit
+
+#Touch log file first to verify existance
+touch piholesync.log
 
 #Direct output to piholesync.log
 exec >  >(tee -ia piholesync.log)

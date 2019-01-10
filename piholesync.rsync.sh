@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Version 0.4
+#Version 0.4
+
+#Touch log file first to verify existance
+touch piholesync.log
 
 #Direct output to piholesync.log
 exec >  >(tee -ia piholesync.log)
@@ -19,6 +22,7 @@ FILE=$1
 echo "Syncing: $FILE to $PIHOLE2"
 if [[ -f $FILE ]]; then
   RSYNC_COMMAND="rsync -aiu $FILE $HAUSER@$PIHOLE2:$PIHOLEDIR"
+  echo "Sending $RSYNC_COMMAND to $PIHOLE2"
   if [[ -n "$RSYNC_COMMAND" ]]; then
     echo "$FILE synced successfully to $PIHOLE2"
     if [[ $FILE == "$PIHOLEDIR/adlists.list" ]]; then
