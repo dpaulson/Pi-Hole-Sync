@@ -1,7 +1,7 @@
 #!/bin/bash
 # README
 
-#Version 0.4
+#Version 0.5
 #-----------------------------
 #Credit to redditor /u/jvinch76  https://www.reddit.com/user/jvinch76 for creating the basis for this modification.
 #-----------------------------
