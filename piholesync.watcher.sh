@@ -1,7 +1,7 @@
 #!/bin/bash
 # README
 
-#Version 0.1
+#Version 0.2
 #-----------------------------
 #Credit to redditor /u/jvinch76  https://www.reddit.com/user/jvinch76 for creating the basis for this modification.
 #-----------------------------
@@ -72,7 +72,7 @@ exec 2> >(tee -ia piholesync.log >&2)
 inotifywait -m --format %w -e close_write /etc/pihole/black.list /etc/pihole/blacklist.txt /etc/pihole/regex.list /etc/pihole/whitelist.txt "/etc/pihole/pihole-FTL.conf" /etc/pihole/adlists.list /etc/pihole/auditlog.list | while read FILE
 do
   echo "File modified: $FILE starting sync"
-  RSYNC_COMMAND="/bin/bash /home/pi/piholesync.rsync.sh $FILE"
+  RSYNC_COMMAND="bash piholesync.rsync.sh $FILE"
   echo "Executing $RSYNC_COMMAND"
   "$RSYNC_COMMAND"
 done
