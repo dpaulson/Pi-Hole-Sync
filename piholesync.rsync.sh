@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Version 0.5
+#Version 0.6
 
 #Touch log file first to verify existance
 touch piholesync.log
@@ -23,30 +23,30 @@ else
 	echo "Syncing: $FILE to $PIHOLE2"
 	if [[ -f $FILE ]]; then
 		RSYNC_COMMAND="rsync -aiu $FILE $HAUSER@$PIHOLE2:$PIHOLEDIR"
-		"$RSYNC_COMMAND"
-		echo "$RSYNC_COMMAND sent to $PIHOLE2"
+		echo "Executing $RSYNC_COMMAND"
+		$RSYNC_COMMAND
 		if [[ $FILE == "$PIHOLEDIR/adlists.list" ]]; then
 			# rsync copied adlists.list, update GRAVITY
 			echo "Was adlist.list, updating Gravity on $PIHOLE2"
 			SSH_COMMAND="ssh $HAUSER@$PIHOLE2 \"sudo -S pihole -g\""
-			"$SSH_COMMAND"
+			$SSH_COMMAND
 			echo "$SSH_COMMAND sent to $PIHOLE2"
 		else
 			# rsync copied a different file, restart service
 			echo "Was NOT adlist.list, restarting FTL on $PIHOLE2"
 			echo "Sending stop FTL command to $PIHOLE2"
 			SSH_COMMAND="ssh $HAUSER@$PIHOLE2 \"sudo -S service pihole-FTL stop\""
-			"$SSH_COMMAND"
+			$SSH_COMMAND
 			echo "$SSH_COMMAND sent to $PIHOLE2"
 			echo "Sending kill FTL command to $PIHOLE2"
 			SSH_COMMAND="ssh $HAUSER@$PIHOLE2 \"sudo -S pkill pihole-FTL\""
-			"$SSH_COMMAND"
+			$SSH_COMMAND
 			echo "$SSH_COMMAND sent to $PIHOLE2"
 			echo "Sleeping for 3 seconds to allow FTL stop/kill to complete"
 			sleep 3
 			echo "Sending start FTL command to $PIHOLE2"
 			SSH_COMMAND="ssh $HAUSER@$PIHOLE2 \"sudo -S service pihole-FTL start\""
-			"$SSH_COMMAND"
+			$SSH_COMMAND
 			echo "$SSH_COMMAND sent to $PIHOLE2"
 			echo "FTL restart commands all sent to $PIHOLE2"
 		fi

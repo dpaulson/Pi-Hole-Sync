@@ -1,7 +1,7 @@
 #!/bin/bash
 # README
 
-#Version 0.5
+#Version 0.6
 #-----------------------------
 #Credit to redditor /u/jvinch76  https://www.reddit.com/user/jvinch76 for creating the basis for this modification.
 #-----------------------------
@@ -77,5 +77,5 @@ do
   echo "File modified: $FILE starting sync"
   RSYNC_COMMAND="bash piholesync.rsync.sh $FILE"
   echo "Executing $RSYNC_COMMAND"
-  "$RSYNC_COMMAND"
+  $RSYNC_COMMAND
 done
