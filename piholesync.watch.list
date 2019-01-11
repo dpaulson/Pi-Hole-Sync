@@ -1,0 +1,7 @@
+/etc/pihole/black.list	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
+/etc/pihole/blacklist.txt	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
+/etc/pihole/regex.list	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
+/etc/pihole/whitelist.txt	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
+"/etc/pihole/pihole-FTL.conf"	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
+/etc/pihole/adlists.list	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
+/etc/pihole/auditlog.list	IN_CLOSE_WRITE,IN_NO_LOOP	bash /home/pi/piholesync.rsync.sh $@
