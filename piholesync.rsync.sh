@@ -13,9 +13,20 @@
 #-----------------------------
 #Improvements:  Added logging to piholesync.log
 #Complete rsync script rewrite that checks if FTL or Gravity needs to be updated and executes appropriate SSH command
-#
+#Script usage: bash piholesync.rsync.sh <FILEPATH/FILENAME>
 #-----------------------------
-#
+#Installation:
+#-----------------------------
+#On PRIMARY Pi-Hole
+#1. Login to PRIMARY Pi-Hole
+#2. execute 'wget https://raw.githubusercontent.com/dpaulson/Pi-Hole-Sync/master/piholesync.rsync.sh'
+#3. execute 'wget https://raw.githubusercontent.com/dpaulson/Pi-Hole-Sync/master/piholesync.watch.list'
+#4. edit piholesync.rsync.sh and change:
+#4a. PIHOLE2 your SECONDARY Pi-Hole's IP
+#4b. PIHOLEDIR your SECONDARY Pi-Hole's pihole directory
+#4c. HAUSER to your SECONDARY Pi-Hole's user account
+#5. save and exit
+#6. execute 'chmod +x ~/piholesync.rsync.sh' to make they rsync script executable
 
 #Touch log file first to verify existance
 touch piholesync.log
@@ -30,9 +41,9 @@ if [ -z "$1" ]; then
 else
 
 	#VARS
-	PIHOLEDIR=/etc/pihole #working dir of pihole
-	PIHOLE2=192.168.1.38 #IP of 2nd PiHole
-	HAUSER=pi #user of second pihole
+	PIHOLEDIR=/etc/pihole #working dir of SECONDARY Pi-Hole
+	PIHOLE2=192.168.1.38 #IP of 2nd Pi-Hole
+	HAUSER=pi #user of second Pi-Hole
 	FILE=$1
 
 	echo "Syncing: $FILE to $PIHOLE2"
