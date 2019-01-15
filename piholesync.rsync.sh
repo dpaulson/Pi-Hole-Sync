@@ -2,31 +2,8 @@
 
 #Version 0.8
 
-#README
-#-----------------------------
-#Credit to redditor /u/jvinch76  https://www.reddit.com/user/jvinch76 for creating the basis for this modification.
-#-----------------------------
-#Original Source https://www.reddit.com/r/pihole/comments/9gw6hx/sync_two_piholes_bash_script/
-#Previous Pastebin https://pastebin.com/KFzg7Uhi
-#-----------------------------
-#Reddit link https://www.reddit.com/r/pihole/comments/9hi5ls/dual_pihole_sync_20/
-#-----------------------------
-#Improvements:  Added logging to piholesync.log
-#Complete rsync script rewrite that checks if FTL or Gravity needs to be updated and executes appropriate SSH command
-#Script usage: bash piholesync.rsync.sh <FILEPATH/FILENAME>
-#-----------------------------
-#Installation:
-#-----------------------------
-#On PRIMARY Pi-Hole
-#1. Login to PRIMARY Pi-Hole
-#2. execute 'wget https://raw.githubusercontent.com/dpaulson/Pi-Hole-Sync/master/piholesync.rsync.sh'
-#3. execute 'wget https://raw.githubusercontent.com/dpaulson/Pi-Hole-Sync/master/piholesync.watch.list'
-#4. edit piholesync.rsync.sh and change:
-#4a. PIHOLE2 your SECONDARY Pi-Hole's IP
-#4b. PIHOLEDIR your SECONDARY Pi-Hole's pihole directory
-#4c. HAUSER to your SECONDARY Pi-Hole's user account
-#5. save and exit
-#6. execute 'chmod +x ~/piholesync.rsync.sh' to make they rsync script executable
+#README: refer to README.md
+#https://raw.githubusercontent.com/dpaulson/Pi-Hole-Sync/master/README.md
 
 #Touch log file first to verify existance
 touch piholesync.log
